@@ -1,40 +1,34 @@
 <template>
-  <div id="smooth-wrapper">
-    <div id="smooth-content">
-      <Nuxt />
+  <div class="wrap">
+    <nav class="fixed-nav">
+      <NuxtLink to="/">index</NuxtLink>
+      <NuxtLink to="/scroll-smooth">scroll</NuxtLink>
+    </nav>
+
+    <div id="scroll-wrap">
+      <div id="scroll-content">
+        <Nuxt />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-// Note that we are setting gsap-trial to be transpiled in nuxt.config.js
-import { gsap } from 'gsap-trial'
-import { ScrollTrigger } from 'gsap-trial/ScrollTrigger'
-import { ScrollSmoother } from 'gsap-trial/ScrollSmoother'
-import { SmootherObservable } from '../SmootherObservable'
-
 export default {
   name: 'DefaultLayout',
-  mounted() {
-    gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
-
-    // set observable so we can watch for it in child components
-    SmootherObservable.smoother = ScrollSmoother.create({
-      speed: 2,
-    })
+  watch: {
+    $route(newRoute) {
+      if (newRoute) this.$nuxt.$emit('route::updated')
+    },
   },
 }
 </script>
 
 <style>
-* {
-  position: relative;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  padding: 0;
-  margin: 0;
+.fixed-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 </style>
