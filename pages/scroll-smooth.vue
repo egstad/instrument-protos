@@ -23,37 +23,42 @@ export default {
       items: 40,
       text: null,
       timelines: [],
+      observerOptions: { rootMargin: `0px 0px`, threshold: 0 },
     }
   },
   mounted() {
     this.$nuxt.$emit('page::mounted')
 
     setTimeout(() => {
-      this.triggerAnimationOnScroll()
+      this.$refs.box.forEach((el) => {
+        this.inView(el)
+        // window.observer.addEnterCallback(el, this.inView)
+        // window.observer.observe(el, this.observerOptions)
+      })
     }, 0)
   },
   beforeDestroy() {
     this.timelines.forEach((tl) => tl.kill())
+
+    // this.$refs.box.forEach((el) => {
+    //   window.observer.unobserve(el, this.observerOptions)
+    // })
   },
   methods: {
-    triggerAnimationOnScroll() {
-      const els = this.$refs.box
-
-      els.forEach((el) => {
-        const tl = gsap.from(el, {
-          opacity: 0,
-          duration: 1.5,
-          ease: 'power4.out',
-          scrollTrigger: {
-            trigger: el,
-            start: '10% bottom',
-            end: 'center 0%',
-            toggleActions: 'play pause resume reset',
-          },
-        })
-
-        this.timelines.push(tl)
+    inView(el) {
+      const tl = gsap.from(el, {
+        opacity: 0,
+        duration: 1.5,
+        ease: 'power4.out',
+        scrollTrigger: {
+          trigger: el,
+          start: '10% bottom',
+          end: 'center 0%',
+          toggleActions: 'play pause resume reset',
+        },
       })
+
+      this.timelines.push(tl)
     },
   },
 }

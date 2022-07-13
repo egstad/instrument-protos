@@ -21,7 +21,11 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '~/plugins/device/scroll.client.js' }],
+  plugins: [
+    { src: '~/plugins/device/scroll.client.js' },
+    { src: '~/plugins/observer.client.js' },
+    { src: '~/plugins/observerAnimations.client.js' },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
