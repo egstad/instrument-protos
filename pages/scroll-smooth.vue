@@ -7,6 +7,7 @@
       :class="['box', `box-${box}`]"
       :data-lag="((box - 1) % 4) * 0.05"
     >
+      <!--  -->
       {{ text }}
     </div>
   </div>
@@ -19,14 +20,17 @@ export default {
   name: 'IndexPage',
   data() {
     return {
-      items: 120,
+      items: 40,
       text: null,
       timelines: [],
     }
   },
   mounted() {
     this.$nuxt.$emit('page::mounted')
-    // this.triggerAnimationOnScroll()
+
+    setTimeout(() => {
+      this.triggerAnimationOnScroll()
+    }, 0)
   },
   beforeDestroy() {
     this.timelines.forEach((tl) => tl.kill())
@@ -38,12 +42,13 @@ export default {
       els.forEach((el) => {
         const tl = gsap.from(el, {
           opacity: 0,
+          duration: 1.5,
+          ease: 'power4.out',
           scrollTrigger: {
             trigger: el,
-            start: 'center 100%',
+            start: '10% bottom',
             end: 'center 0%',
-            markers: true,
-            scrub: true,
+            toggleActions: 'play pause resume reset',
           },
         })
 
@@ -62,7 +67,7 @@ export default {
   line-height: 250px;
   color: black;
   background-color: pink;
-  margin-top: 8vw;
+  margin-bottom: 8vw;
 }
 
 .grid {

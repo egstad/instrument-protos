@@ -19,8 +19,8 @@ class Scroller {
 
   initScrollSmoother = () => {
     this.scroller = ScrollSmoother.create({
-      wrapper: '#scroll-wrap', // nuxt layout
-      content: '#scroll-content', //
+      wrapper: '#scroll-wrap',
+      content: '#scroll-content',
       smooth: 0.618,
       smoothTouch: 0.1,
       effects: true,
