@@ -13,6 +13,8 @@
     "lintfix": "prettier --write --list-different . && yarn lint:js --fix"
   },
   "dependencies": {
+    "@egstad/detect-motion": "^1.0.4",
+    "@egstad/detect-theme": "^1.4.0",
     "core-js": "^3.19.3",
     "gsap-trial": "^3.10.4",
     "intersection-observer-admin": "^0.3.2",

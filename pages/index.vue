@@ -1,11 +1,15 @@
 <template>
-  <div class="container">
-    <p v-for="box in items" ref="box" :key="box">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus atque
-      odio expedita quaerat fugit quod ducimus ad corporis facere cumque,
-      veritatis quo laboriosam natus laborum, repellendus dolorum quia vitae?
-      Tempora?
-    </p>
+  <div class="container t-1">
+    <section>
+      <nav v-for="nav in navs" :key="nav.id">
+        <header>{{ nav.title }}</header>
+        <ul>
+          <li v-for="link in nav.links" :key="`${nav.id}-${link.name}`">
+            <NuxtLink :to="link.url">{{ link.name }}</NuxtLink>
+          </li>
+        </ul>
+      </nav>
+    </section>
   </div>
 </template>
 
@@ -14,17 +18,40 @@ export default {
   name: 'IndexPage',
   data() {
     return {
-      items: 4,
-      text: null,
-      animaiontsCreated: false,
+      navs: [
+        {
+          title: 'Feature',
+          id: 1,
+          links: [
+            {
+              name: 'Device detection',
+              url: '/feature/device',
+            },
+            {
+              name: 'Scroll',
+              url: '/feature/scroll',
+            },
+            {
+              name: 'Theme detection',
+              url: '/feature/theme',
+            },
+            {
+              name: 'Motion preferences',
+              url: '/feature/motion',
+            },
+          ],
+        },
+      ],
     }
   },
   mounted() {
     this.$nuxt.$emit('page::mounted')
     window.addEventListener('scroller', this.onScroll, false)
+    window.addEventListener('scroll::stop', this.onScroll, false)
   },
   beforeDestroy() {
     window.removeEventListener('scroller', this.onScroll, false)
+    window.removeEventListener('scroll::stop', this.onScroll, false)
   },
   methods: {
     onScroll(ev) {
@@ -35,8 +62,7 @@ export default {
 </script>
 
 <style>
-p {
-  font-size: 10vw;
-  margin-top: 10vw;
+.container {
+  padding-top: 8vw;
 }
 </style>

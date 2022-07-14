@@ -29,6 +29,11 @@ class Scroller {
         this.v = self.getVelocity()
         this.el.dispatchEvent(new Event('scroller'))
       },
+      onStop: (self) => {
+        this.y = self.scrollTop()
+        this.v = self.getVelocity()
+        this.el.dispatchEvent(new Event('scroll::stop'))
+      },
     })
   }
 

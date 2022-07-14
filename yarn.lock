@@ -949,6 +949,16 @@
   resolved "https://registry.npmjs.org/@csstools/convert-colors/-/convert-colors-1.4.0.tgz"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@egstad/detect-motion@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@egstad/detect-motion/-/detect-motion-1.0.4.tgz#1c5695d4026b0804d0a2c88ee01b9877adcc594e"
+  integrity sha512-DB1+EQswACadF+Lhgl13w5H6OvgE3e55Pa9esLxVjoENyIwjIycMGLEN5+F8mYfpn/V5EYV9xT5hWJC+/5Ytbw==
+
+"@egstad/detect-theme@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@egstad/detect-theme/-/detect-theme-1.4.0.tgz#81a44ae4f7419c3d1a65b0200d4ae9d44b5ca54d"
+  integrity sha512-S6BxZtdeiNrJpOdUUsHWbLgNQ2gJfzwc6PvJQvAmFeCowb65B590e0PttVLKxK3996Fl6sFhWLA/oNu7nf7WPw==
+
 "@eslint/eslintrc@^1.3.0":
   version "1.3.0"
   resolved "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-1.3.0.tgz"

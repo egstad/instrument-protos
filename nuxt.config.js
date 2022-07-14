@@ -22,7 +22,10 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/device/device.client.js' },
+    { src: '~/plugins/device/motion.client.js' },
     { src: '~/plugins/device/scroll.client.js' },
+    { src: '~/plugins/device/resize.client.js' },
     { src: '~/plugins/observer.client.js' },
     { src: '~/plugins/observerAnimations.client.js' },
   ],

@@ -1,9 +1,6 @@
 <template>
   <div class="wrap">
-    <nav class="fixed-nav">
-      <NuxtLink to="/">index</NuxtLink>
-      <NuxtLink to="/scroll-smooth">scroll</NuxtLink>
-    </nav>
+    <SiteNav />
 
     <div id="scroll-wrap">
       <div id="scroll-content">
