@@ -5,7 +5,7 @@
         <header>{{ nav.title }}</header>
         <ul>
           <li v-for="link in nav.links" :key="`${nav.id}-${link.name}`">
-            <NuxtLink :to="link.url">{{ link.name }}</NuxtLink>
+            <NuxtLink :to="link.url" class="ts1">{{ link.name }}</NuxtLink>
           </li>
         </ul>
       </nav>
@@ -38,6 +38,16 @@ export default {
             {
               name: 'Motion preferences',
               url: '/feature/motion',
+            },
+          ],
+        },
+        {
+          title: 'Atoms',
+          id: 2,
+          links: [
+            {
+              name: 'Typography',
+              url: '/atoms/typography',
             },
           ],
         },
