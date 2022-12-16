@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="t-1">
+  <div class="">
+    <div class="t-1 container">
       <p>
         Every page leverages <code>GSAP</code>'s <code>ScrollTrigger</code> and
         <code>ScrollSmoother</code> packages. These packages make it easy to
@@ -12,11 +12,19 @@
         <code>window.scroll</code>.
       </p>
     </div>
-    <section ref="sticky" class="t-1 sticky">
-      <hr />
-      <code>y</code> : <code>{{ y }}</code>
-      <hr />
-      <code>v</code> : <code>{{ v }}</code>
+    <section ref="sticky" class="sticky">
+      <table>
+        <tr class="data t-mono t-2">
+          <td class="data__key">y <em>[position]</em></td>
+          <td class="data__colon">&nbsp;:&nbsp;</td>
+          <td class="data__val">{{ y }}</td>
+        </tr>
+        <tr>
+          <td class="data__key">v <em>[velocity]</em></td>
+          <td class="data__colon">&nbsp;:&nbsp;</td>
+          <td class="data__val">{{ v }}</td>
+        </tr>
+      </table>
       <hr />
     </section>
   </div>
@@ -63,7 +71,7 @@ export default {
 
 <style scoped>
 .container {
-  min-height: 1500vh;
+  /* min-height: 1500vh; */
   padding: 4vw;
 }
 
@@ -74,17 +82,47 @@ export default {
   max-width: 50ch;
 }
 
-pre {
+/* pre {
   display: inline-blockblock;
-}
+} */
 
-code {
+/* code {
   background: hsl(65, 90%, 75%);
   border-radius: 0.2em;
   padding: 0 0.3em;
-}
+} */
 
 .sticky {
   padding-bottom: 4vw;
+}
+
+.data {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: monospace;
+  color: white;
+}
+
+.data em {
+  opacity: 0.6;
+}
+
+.data__key {
+  background: black;
+  padding: 0 32px;
+  white-space: nowrap;
+
+  /* width: clamp(150px, 8vw, 300px); */
+}
+.data__colon {
+  background: gray;
+  white-space: nowrap;
+}
+.data__val {
+  background: blue;
+  padding: 0 32px;
+  width: 100%;
 }
 </style>

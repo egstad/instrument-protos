@@ -4,7 +4,7 @@ const windowResize = {
   init() {
     this.resizeHandler = this.throttleResize.bind(this)
     this.timeout = false
-    this.delay = 200
+    this.delay = 75
 
     window.addEventListener('resize', this.resizeHandler)
   },

@@ -1,25 +1,14 @@
 <template>
   <div>
-    <section ref="sticky" class="t-1 sticky">
-      <hr />
-      <code>isCursor</code> : <code>{{ isCursor }}</code>
-      <hr />
-      <code>isTouch</code> : <code>{{ isTouch }}</code>
-      <hr />
-      <code>isMobile</code> : <code>{{ isMobile }}</code>
-      <hr />
-      <code>dpi</code> : <code>{{ dpi }}</code>
-      <hr />
-      <code>hideAnimations</code> : <code>{{ hideAnimations }}</code>
-      <hr />
-      <code>winWidth</code> : <code>{{ winWidth }}</code>
-      <hr />
-      <code>winHeight</code> : <code>{{ winHeight }}</code>
-      <hr />
-      <code>docWidth</code> : <code>{{ docWidth }}</code>
-      <hr />
-      <code>docHeight</code> : <code>{{ docHeight }}</code>
-      <hr />
+    <section ref="sticky" class="sticky">
+      <table>
+        <tbody>
+          <TableRow v-for="(item, index) in items" :key="item.name + index">
+            <template #property>{{ item.name }}</template>
+            <template #value>{{ item.value }}</template>
+          </TableRow>
+        </tbody>
+      </table>
     </section>
   </div>
 </template>
@@ -37,11 +26,17 @@ export default {
     isMobile() {
       return this.$store.state.device.isMobile
     },
+    colorDepth() {
+      return this.$store.state.device.colorDepth
+    },
+    pixelDepth() {
+      return this.$store.state.device.pixelDepth
+    },
     dpi() {
       return this.$store.state.device.dpi
     },
-    hideAnimations() {
-      return this.$store.state.device.hideAnimations
+    showAnimations() {
+      return this.$store.state.device.showAnimations
     },
     winWidth() {
       return this.$store.state.device.winWidth
@@ -54,6 +49,55 @@ export default {
     },
     docHeight() {
       return this.$store.state.device.docHeight
+    },
+
+    items() {
+      return [
+        {
+          name: 'isCursor',
+          value: this.isCursor,
+        },
+        {
+          name: 'isTouch',
+          value: this.isTouch,
+        },
+        {
+          name: 'isMobile',
+          value: this.isMobile,
+        },
+        {
+          name: 'colorDepth',
+          value: this.colorDepth,
+        },
+        {
+          name: 'pixelDepth',
+          value: this.pixelDepth,
+        },
+        {
+          name: 'dpi',
+          value: this.dpi,
+        },
+        {
+          name: 'showAnimations',
+          value: this.showAnimations,
+        },
+        {
+          name: 'winWidth',
+          value: this.winWidth,
+        },
+        {
+          name: 'winHeight',
+          value: this.winHeight,
+        },
+        {
+          name: 'docWidth',
+          value: this.docWidth,
+        },
+        {
+          name: 'docHeight',
+          value: this.docHeight,
+        },
+      ]
     },
   },
 }

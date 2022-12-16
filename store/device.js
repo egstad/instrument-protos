@@ -2,8 +2,10 @@ export const state = () => ({
   isTouch: null,
   isCursor: null,
   isMobile: null,
+  colorDepth: null,
+  pixelDepth: null,
   dpi: null,
-  hideAnimations: null,
+  showAnimations: null,
   winWidth: null,
   winHeight: null,
   docWidth: null,
@@ -15,13 +17,15 @@ export const mutations = {
     state.isTouch = val.isTouch
     state.isCursor = val.isCursor
     state.isMobile = val.isMobile
+    state.colorDepth = val.colorDepth
+    state.pixelDepth = val.pixelDepth
     state.dpi = val.dpi
   },
   setPreferredTheme(state, boolean) {
     state.preferredTheme = boolean
   },
   setPrefersReducedMotion(state, boolean) {
-    state.hideAnimations = boolean
+    state.showAnimations = boolean
   },
   setDimensions(state, val) {
     state.winWidth = val.winWidth

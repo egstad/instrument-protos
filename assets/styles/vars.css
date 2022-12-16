@@ -1,0 +1,8 @@
+:root {
+  --mono: 'System85', monospace;
+  --sans: 'EG Metaphor', sans-serif;
+  --ease-back: cubic-bezier(0.375, 0.39, 0, 1.175);
+
+  --background: #c9c4c4;
+  --foreground: #000000;
+}

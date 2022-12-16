@@ -1,0 +1,46 @@
+/*-----------------------------------------------------------------------------
+ | Typography.scss
+ *-----------------------------------------------------------------------------
+ | Globally available typographic helper classes
+ *---------------------------------------------------------------------------*/
+
+.t-1 {
+  font-size: clamp(2em, 1vw, 4em);
+  font-family: var(--sans);
+  font-variation-settings: 'wght' 450;
+  letter-spacing: 0.02em;
+}
+
+.t-2 {
+  font-size: clamp(0.8em, 1vw, 2em);
+  font-family: var(--sans);
+  font-variation-settings: 'wght' 500;
+}
+
+.t-3 {
+  font-family: var(--sans);
+  letter-spacing: 0.01em;
+}
+
+.t-mono {
+  font-family: 'System85';
+  letter-spacing: 0.1em;
+}
+
+.t-center {
+  text-align: center;
+}
+
+@font-face {
+  font-family: 'EG Metaphor';
+  font-style: normal;
+  font-display: swap;
+  src: url('~assets/fonts/EG-Metaphor-Sans.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'System85';
+  font-style: normal;
+  font-display: swap;
+  src: url('~assets/fonts/System-85-Mono.woff2') format('woff2');
+}

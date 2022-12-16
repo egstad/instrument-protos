@@ -10,6 +10,8 @@ const deviceInfo = {
       isTouch: 'ontouchstart' in window || matchMedia('(hover: none)').matches,
       isCursor: 'onmousedown' in document.documentElement,
       dpi: window.devicePixelRatio,
+      colorDepth: window.screen.colorDepth,
+      pixelDepth: window.screen.pixelDepth,
       isMobile:
         /Android|BlackBerry|iPhone|iPad|iPod|IEMobile|Opera Mini/gi.test(
           window.navigator.userAgent

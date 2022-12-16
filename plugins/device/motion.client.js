@@ -9,7 +9,7 @@ const preferredTheme = {
   setPreference(ev) {
     window.$nuxt.$store.commit(
       'device/setPrefersReducedMotion',
-      ev.detail.reduce
+      !ev.detail.reduce
     )
   },
 }
