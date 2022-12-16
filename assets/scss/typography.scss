@@ -1,0 +1,113 @@
+:root {
+  --window-small: 500;
+
+  --baseline: 8;
+
+  --overline-1-size: 12px;
+  --overline-1-line-height: var(--baseline);
+  --overline-1-letter-spacing: 0.11em;
+
+  --body-1-size: 14;
+  --body-1-line-height: calc(var(--baseline) * 2.5);
+  --body-1-letter-spacing: 0.03em;
+
+  --body-2-size: 16;
+  --body-2-line-height: calc(var(--baseline) * 3);
+  --body-2-letter-spacing: 0.02em;
+
+  --body-3-size: 19;
+  --body-3-line-height: calc(var(--baseline) * 3.5);
+  --body-3-letter-spacing: 0.01em;
+
+  --body-4-size: 19;
+  --body-4-line-height: calc(var(--baseline) * 4);
+  --body-4-letter-spacing: 0;
+
+  --caption-1-size: 9;
+  --caption-1-line-height: calc(var(--baseline) * 1.5);
+  --caption-1-letter-spacing: 0.11em;
+
+  --caption-2-size: 12;
+  --caption-2-line-height: calc(var(--baseline));
+  --caption-2-letter-spacing: 0.04em;
+}
+
+.t-body {
+  &--1 {
+    font-size: calc(var(--body-1-size) * 1px);
+    line-height: calc(var(--body-1-line-height) * 1px);
+    letter-spacing: var(--body-1-letter-spacing);
+
+    @media (min-width: 500px) and (max-width: 640px) {
+      font-size: calc((var(--body-1-size) / var(--window-small)) * 100vw);
+      line-height: calc(var(--body-1-line-height) / var(--body-1-size));
+    }
+  }
+
+  &--2 {
+    font-size: calc(var(--body-2-size) * 1px);
+    line-height: calc(var(--body-2-line-height) * 1px);
+    letter-spacing: var(--body-2-letter-spacing);
+
+    @media (min-width: 500px) and (max-width: 640px) {
+      font-size: calc((var(--body-2-size) / var(--window-small)) * 100vw);
+      line-height: calc(var(--body-2-line-height) / var(--body-2-size));
+    }
+  }
+
+  &--3 {
+    font-size: calc(var(--body-3-size) * 1px);
+    line-height: calc(var(--body-3-line-height) * 1px);
+    letter-spacing: var(--body-3-letter-spacing);
+
+    @media (min-width: 500px) and (max-width: 640px) {
+      font-size: calc((var(--body-3-size) / var(--window-small)) * 100vw);
+      line-height: calc(var(--body-3-line-height) / var(--body-3-size));
+    }
+  }
+
+  &--4 {
+    font-size: calc(var(--body-4-size) * 1px);
+    line-height: calc(var(--body-4-line-height) * 1px);
+    letter-spacing: var(--body-4-letter-spacing);
+
+    @media (min-width: 500px) and (max-width: 640px) {
+      font-size: calc((var(--body-4-size) / var(--window-small)) * 100vw);
+      line-height: calc(var(--body-4-line-height) / var(--body-4-size));
+    }
+  }
+}
+
+.t-caption {
+  &--1 {
+    font-size: calc(var(--caption-1-size) * 1px);
+    line-height: calc(var(--caption-1-line-height) * 1px);
+    letter-spacing: var(--caption-1-letter-spacing);
+    text-transform: uppercase;
+
+    @media (min-width: 500px) and (max-width: 640px) {
+      font-size: calc((var(--caption-1-size) / var(--window-small)) * 100vw);
+      line-height: calc(var(--caption-1-line-height) / var(--caption-1-size));
+    }
+  }
+
+  &--2 {
+    font-size: calc(var(--caption-2-size) * 1px);
+    line-height: calc(var(--caption-2-line-height) * 1px);
+    letter-spacing: var(--caption-2-letter-spacing);
+    font-variation-settings: 'wght' 420, 'wdth' 370;
+
+    @media (min-width: 500px) and (max-width: 640px) {
+      font-size: calc((var(--caption-2-size) / var(--window-small)) * 100vw);
+      line-height: calc(var(--caption-2-line-height) / var(--caption-2-size));
+    }
+  }
+}
+
+@font-face {
+  src: url('~static/fonts/InstrumentSansVF.ttf');
+  font-family: 'Instrument-Sans';
+  font-display: block;
+  font-weight: normal;
+  font-style: normal;
+}

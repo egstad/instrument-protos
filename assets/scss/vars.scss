@@ -1,0 +1,67 @@
+:root {
+  // background
+  --color-background: 220, 220, 220;
+  --background: rgb(var(--color-background));
+
+  // foreground
+  --color-foreground: 10, 10, 10;
+  --foreground: rgb(var(--color-foreground));
+
+  // links, buttons, etc.
+  --color-accent: 0, 0, 0;
+  --accent: rgb(var(--color-accent));
+}
+
+/* breakpoints
+   ========================================================================== */
+
+$vp-sm: 390px;
+$vp-md: 640px;
+$vp-lg: 1024px;
+$vp-xl: 1440px;
+$vp-xx: 1920px;
+
+$breakpoints: (
+  'sm': $vp-sm,
+  'md': $vp-md,
+  'lg': $vp-lg,
+  'xl': $vp-xl,
+  'xx': $vp-xx,
+);
+
+/* typography
+   ========================================================================== */
+
+// baseline grid size
+$baseline: 16px;
+
+// sans-serif
+$text-sans: 'EG-Metaphor', Helvetica, sans-serif;
+
+// serif
+$text-serif: 'EG-Times', Times, serif;
+
+// monospace
+$text-mono: Courier, monospace;
+
+$text-fluidity-start: $vp-sm;
+$text-fluidity-end: $vp-xx;
+
+/* spacing
+   ========================================================================== */
+
+$space: calc(5px + 2vw);
+
+// Transitions
+$trans-ease: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+$trans-ease: ease-in-out;
+$trans-duration: 400ms;
+$trans-delay-intro: 750ms;
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}

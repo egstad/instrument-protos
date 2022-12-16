@@ -1,0 +1,154 @@
+// --------------------------------------------------------------------------------------
+// Grid                     .grid
+// --------------------------------------------------------------------------------------
+// Column span              .col-span-{n}
+// Breakpoint span          .sm:col-span-{n}
+// --------------------------------------------------------------------------------------
+// Column start             .col-start-{n}
+// Breakpoint start         .sm:col-start-{n}
+// --------------------------------------------------------------------------------------
+
+$grid-columns: 12;
+$grid-gutter: 16;
+$grid-padding: 32;
+
+$grid-mobile-columns: 4;
+$grid-mobile-gutter: 8;
+$grid-mobile-padding: 24;
+
+@mixin grid-settings {
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: max-content;
+  width: 100%;
+  grid-template-columns: repeat($grid-mobile-columns, 1fr);
+  grid-column-gap: calc(#{$grid-mobile-gutter} * 1px);
+  padding: 0 calc(#{$grid-mobile-padding} * 1px);
+
+  // mobile: small to medium viewports
+  @media (min-width: $vp-sm) {
+    grid-column-gap: calc(
+      (#{$grid-mobile-gutter} / #{strip-unit($vp-sm)}) * 100vw
+    );
+    padding: calc((#{$grid-mobile-padding} / #{strip-unit($vp-sm)}) * 100vw);
+  }
+
+  // tablet: medium to large viewports
+  @media (min-width: $vp-md) {
+    grid-template-columns: repeat($grid-columns, 1fr);
+    grid-column-gap: calc((#{$grid-gutter} / #{strip-unit($vp-md)}) * 100vw);
+    padding: calc((#{$grid-padding} / #{strip-unit($vp-md)}) * 100vw);
+  }
+
+  // laptop: large to xlarge viewports
+  @media (min-width: $vp-lg) {
+    grid-column-gap: calc((#{$grid-gutter} / #{strip-unit($vp-lg)}) * 100vw);
+    padding: calc((#{$grid-padding} / #{strip-unit($vp-lg)}) * 100vw);
+  }
+
+  // desktops: large to xlarge viewports
+  @media (min-width: $vp-xl) {
+    grid-column-gap: calc((#{$grid-gutter} / #{strip-unit($vp-xl)}) * 100vw);
+    padding: calc((#{$grid-padding} / #{strip-unit($vp-xl)}) * 100vw);
+  }
+
+  // cinema: xxl viewports
+  @media (min-width: $vp-xx) {
+    grid-column-gap: calc((#{$grid-gutter} / #{strip-unit($vp-xx)}) * 100vw);
+    padding: calc((#{$grid-padding} / #{strip-unit($vp-xx)}) * 100vw);
+  }
+
+  &--gutter-thin {
+    grid-column-gap: 2px;
+    padding: 0;
+  }
+
+  > .grid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+// --------------------------------------------------------------------------------------
+// Grid
+// --------------------------------------------------------------------------------------
+
+.grid {
+  position: relative;
+  @include grid-settings;
+
+  &.no-padding {
+    padding: 0;
+  }
+
+  &.full.no-padding {
+    padding: 0;
+  }
+
+  &.no-padding {
+    &.align-left {
+      > * {
+        margin-left: -$grid-gutter;
+      }
+    }
+    &.align-right {
+      > * {
+        margin-right: -$grid-gutter;
+      }
+    }
+  }
+
+  // Target all columns
+  // > [class^="cols"] {}
+}
+
+// --------------------------------------------------------------------------------------
+// Default column classes
+// --------------------------------------------------------------------------------------
+
+// create span classes
+@for $index from 1 through $grid-columns {
+  .cols-#{$index} {
+    // grid-column-end: span #{$index};
+    grid-column: span #{$index} / span #{$index};
+  }
+}
+
+.cols-auto {
+  grid-column-start: auto;
+}
+
+// create start classes
+@for $index from 1 through $grid-columns {
+  .cols-start-#{$index} {
+    grid-column-start: #{$index};
+  }
+}
+
+// --------------------------------------------------------------------------------------
+// Breakpoint column classes
+// --------------------------------------------------------------------------------------
+
+// Create column classes for all breakpoints
+@each $name, $size in $breakpoints {
+  @media (min-width: $size) {
+    // create span classes
+    @for $index from 1 through $grid-columns {
+      .#{$name}_cols-#{$index} {
+        // grid-column-end: span #{$index};
+        grid-column: span #{$index} / span #{$index};
+      }
+    }
+
+    .#{$name}_cols-auto {
+      grid-column-start: auto;
+    }
+
+    // create start classes
+    @for $index from 1 through $grid-columns {
+      .#{$name}_cols-start-#{$index} {
+        grid-column-start: #{$index};
+      }
+    }
+  }
+}
