@@ -16,20 +16,6 @@ $grid-mobile-columns: 4;
 $grid-mobile-gutter: 8;
 $grid-mobile-padding: 24;
 
-// $vp-sm: 390px;
-// $vp-md: 640px;
-// $vp-lg: 1024px;
-// $vp-xl: 1440px;
-// $vp-xx: 1920px;
-
-@function strip-unit($number) {
-  @if type-of($number) == 'number' and not unitless($number) {
-    @return $number / ($number * 0 + 1);
-  }
-
-  @return $number;
-}
-
 @mixin grid-settings {
   display: grid;
   grid-auto-flow: row;
