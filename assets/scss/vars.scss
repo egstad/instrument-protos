@@ -1,3 +1,11 @@
+@use 'sass:math';
+
+$vp-sm: 390px;
+$vp-md: 640px;
+$vp-lg: 1024px;
+$vp-xl: 1440px;
+$vp-xx: 1920px;
+
 :root {
   // background
   --color-background: 220, 220, 220;
@@ -10,24 +18,14 @@
   // links, buttons, etc.
   --color-accent: 0, 0, 0;
   --accent: rgb(var(--color-accent));
+
+  // breakpoints
+  --vp-sm: $vp-sm;
+  --vp-md: $vp-md;
+  --vp-lg: $vp-lg;
+  --vp-xl: $vp-xl;
+  --vp-xx: $vp-xx;
 }
-
-/* breakpoints
-   ========================================================================== */
-
-$vp-sm: 390px;
-$vp-md: 640px;
-$vp-lg: 1024px;
-$vp-xl: 1440px;
-$vp-xx: 1920px;
-
-$breakpoints: (
-  'sm': $vp-sm,
-  'md': $vp-md,
-  'lg': $vp-lg,
-  'xl': $vp-xl,
-  'xx': $vp-xx,
-);
 
 /* typography
    ========================================================================== */
@@ -44,8 +42,8 @@ $text-serif: 'EG-Times', Times, serif;
 // monospace
 $text-mono: Courier, monospace;
 
-$text-fluidity-start: $vp-sm;
-$text-fluidity-end: $vp-xx;
+$text-fluidity-start: var(--vp-sm);
+$text-fluidity-end: var(--vp-xx);
 
 /* spacing
    ========================================================================== */
@@ -60,7 +58,7 @@ $trans-delay-intro: 750ms;
 
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
-    @return $number / ($number * 0 + 1);
+    @return math.div($number, $number * 0 + 1);
   }
 
   @return $number;

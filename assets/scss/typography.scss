@@ -19,7 +19,7 @@
   --body-3-line-height: calc(var(--baseline) * 3.5);
   --body-3-letter-spacing: 0.01em;
 
-  --body-4-size: 19;
+  --body-4-size: 25;
   --body-4-line-height: calc(var(--baseline) * 4);
   --body-4-letter-spacing: 0;
 
@@ -28,8 +28,27 @@
   --caption-1-letter-spacing: 0.11em;
 
   --caption-2-size: 12;
-  --caption-2-line-height: calc(var(--baseline));
+  --caption-2-line-height: calc(var(--baseline) * 2);
   --caption-2-letter-spacing: 0.04em;
+}
+
+@mixin fluid-type-settings($font-size, $line-height) {
+  @media (min-width: $vp-sm) {
+    line-height: calc(#{$line-height} / #{$font-size});
+    font-size: calc(#{$font-size} / #{strip-unit($vp-sm)} * 100vw);
+  }
+  @media (min-width: $vp-md) {
+    font-size: calc(#{$font-size} / #{strip-unit($vp-md)} * 100vw);
+  }
+  @media (min-width: $vp-lg) {
+    font-size: calc(#{$font-size} / #{strip-unit($vp-lg)} * 100vw);
+  }
+  @media (min-width: $vp-xl) {
+    font-size: calc(#{$font-size} / #{strip-unit($vp-xl)} * 100vw);
+  }
+  @media (min-width: $vp-xx) {
+    font-size: calc(#{$font-size} / #{strip-unit($vp-xx)} * 100vw);
+  }
 }
 
 .t-body {
@@ -38,10 +57,7 @@
     line-height: calc(var(--body-1-line-height) * 1px);
     letter-spacing: var(--body-1-letter-spacing);
 
-    @media (min-width: 500px) and (max-width: 640px) {
-      font-size: calc((var(--body-1-size) / var(--window-small)) * 100vw);
-      line-height: calc(var(--body-1-line-height) / var(--body-1-size));
-    }
+    @include fluid-type-settings(var(--body-1-size), var(--body-1-line-height));
   }
 
   &--2 {
@@ -49,10 +65,7 @@
     line-height: calc(var(--body-2-line-height) * 1px);
     letter-spacing: var(--body-2-letter-spacing);
 
-    @media (min-width: 500px) and (max-width: 640px) {
-      font-size: calc((var(--body-2-size) / var(--window-small)) * 100vw);
-      line-height: calc(var(--body-2-line-height) / var(--body-2-size));
-    }
+    @include fluid-type-settings(var(--body-2-size), var(--body-2-line-height));
   }
 
   &--3 {
@@ -60,10 +73,7 @@
     line-height: calc(var(--body-3-line-height) * 1px);
     letter-spacing: var(--body-3-letter-spacing);
 
-    @media (min-width: 500px) and (max-width: 640px) {
-      font-size: calc((var(--body-3-size) / var(--window-small)) * 100vw);
-      line-height: calc(var(--body-3-line-height) / var(--body-3-size));
-    }
+    @include fluid-type-settings(var(--body-3-size), var(--body-3-line-height));
   }
 
   &--4 {
@@ -71,10 +81,7 @@
     line-height: calc(var(--body-4-line-height) * 1px);
     letter-spacing: var(--body-4-letter-spacing);
 
-    @media (min-width: 500px) and (max-width: 640px) {
-      font-size: calc((var(--body-4-size) / var(--window-small)) * 100vw);
-      line-height: calc(var(--body-4-line-height) / var(--body-4-size));
-    }
+    @include fluid-type-settings(var(--body-4-size), var(--body-4-line-height));
   }
 }
 
@@ -85,10 +92,10 @@
     letter-spacing: var(--caption-1-letter-spacing);
     text-transform: uppercase;
 
-    @media (min-width: 500px) and (max-width: 640px) {
-      font-size: calc((var(--caption-1-size) / var(--window-small)) * 100vw);
-      line-height: calc(var(--caption-1-line-height) / var(--caption-1-size));
-    }
+    @include fluid-type-settings(
+      var(--caption-1-size),
+      var(--caption-1-line-height)
+    );
   }
 
   &--2 {
@@ -97,10 +104,10 @@
     letter-spacing: var(--caption-2-letter-spacing);
     font-variation-settings: 'wght' 420, 'wdth' 370;
 
-    @media (min-width: 500px) and (max-width: 640px) {
-      font-size: calc((var(--caption-2-size) / var(--window-small)) * 100vw);
-      line-height: calc(var(--caption-2-line-height) / var(--caption-2-size));
-    }
+    @include fluid-type-settings(
+      var(--caption-2-size),
+      var(--caption-2-line-height)
+    );
   }
 }
 

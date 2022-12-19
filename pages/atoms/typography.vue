@@ -5,19 +5,17 @@
     </div>
 
     <section v-for="(style, index) in styles" :key="index" class="grid">
-      <template v-if="style.type === 'caption'">
-        <p class="cols-12 sm_cols-6 lg_cols-3 t-caption--1">
-          {{ style.title }}
-        </p>
-        <p
-          v-for="num in style.columns"
-          :key="index + '-' + num"
-          class="cols-12 sm_cols-6 lg_cols-2"
-          :class="style.classes"
-        >
-          {{ generateSentences(1) }}
-        </p>
-      </template>
+      <p class="cols-12 sm_cols-6 lg_cols-3 t-caption--1">
+        {{ style.name }}
+      </p>
+      <p
+        v-for="num in style.columns"
+        :key="index + '-' + num"
+        class="cols-12 sm_cols-6 lg_cols-2"
+        :class="style.classes"
+      >
+        {{ generateSentences(1) }}
+      </p>
     </section>
   </div>
 </template>
@@ -42,13 +40,13 @@ export default {
           columns: 3,
         },
         {
-          name: 'Caption 1',
+          name: 'Overline 1',
           classes: 't-overline--1',
           type: 'overline',
           columns: 3,
         },
         {
-          name: 'Caption 2',
+          name: 'Overline 2',
           classes: 't-overline--2',
           type: 'overline',
           columns: 3,
@@ -57,81 +55,97 @@ export default {
           name: 'Body 1',
           classes: 't-body--1',
           type: 'body',
+          columns: 2,
         },
         {
           name: 'Body 2',
           classes: 't-body--2',
           type: 'body',
+          columns: 2,
         },
         {
           name: 'Body 3',
           classes: 't-body--3',
           type: 'body',
+          columns: 2,
         },
         {
           name: 'Body 4',
           classes: 't-body--4',
           type: 'body',
+          columns: 2,
         },
         {
           name: 'Headline 1',
           classes: 't-headline--1',
           type: 'headline',
+          columns: 2,
         },
         {
           name: 'Headline 2',
           classes: 't-headline--2',
           type: 'headline',
+          columns: 2,
         },
         {
           name: 'Headline 3',
           classes: 't-headline--3',
           type: 'headline',
+          columns: 2,
         },
         {
           name: 'Headline 4',
           classes: 't-headline--4',
           type: 'headline',
+          columns: 1,
         },
         {
           name: 'Headline 5',
           classes: 't-headline--5',
           type: 'headline',
+          columns: 1,
         },
         {
           name: 'Headline 6',
           classes: 't-headline--6',
           type: 'headline',
+          columns: 1,
         },
         {
           name: 'Display 1',
           classes: 't-display--1',
           type: 'display',
+          columns: 1,
         },
         {
           name: 'Display 2',
           classes: 't-display--2',
           type: 'display',
+          columns: 1,
         },
         {
           name: 'Display 3',
           classes: 't-display--3',
           type: 'display',
+          columns: 1,
         },
         {
           name: 'Display 4',
           classes: 't-display--4',
           type: 'display',
+          columns: 1,
         },
         {
           name: 'Display 5',
           classes: 't-display--5',
           type: 'display',
+          columns: 1,
         },
         {
           name: 'Display 6',
           classes: 't-display--6',
           type: 'display',
+          columns: 1,
         },
       ],
     }
