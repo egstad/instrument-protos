@@ -1,3 +1,21 @@
+:root {
+  --grid-columns: 12;
+  --grid-gutter: 8;
+  --grid-padding: 24;
+}
+
+@media (min-width: $tablet) {
+  :root {
+    --grid-gutter: 8;
+  }
+}
+
+@media (min-width: $desktop) {
+  :root {
+    --grid-padding: 32;
+  }
+}
+
 // --------------------------------------------------------------------------------------
 // Grid                     .grid
 // --------------------------------------------------------------------------------------
@@ -8,68 +26,37 @@
 // Breakpoint start         .sm:col-start-{n}
 // --------------------------------------------------------------------------------------
 
-$grid-columns: 12;
-$grid-gutter: 8;
-$grid-padding: 32;
-
-$grid-mobile-columns: 4;
-$grid-mobile-gutter: 8;
-$grid-mobile-padding: 24;
-
-/* breakpoints
-   ========================================================================== */
-
-$breakpoints: (
-  'sm': var(--vp-sm),
-  'md': var(--vp-md),
-  'lg': var(--vp-lg),
-  'xl': var(--vp-xl),
-  'xx': var(--vp-xx),
-);
-
 @mixin grid-settings {
   display: grid;
   grid-auto-flow: row;
   grid-auto-rows: max-content;
   width: 100%;
-  grid-template-columns: repeat($grid-mobile-columns, 1fr);
-  grid-column-gap: calc(#{$grid-mobile-gutter} * 1px);
-  padding: 0 calc(#{$grid-mobile-padding} * 1px);
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  grid-column-gap: calc(var(--grid-gutter) * 1px);
+  padding: 0 calc(var(--grid-padding) * 1px);
 
-  // mobile: small to medium viewports
-  @media (min-width: $vp-sm) {
+  @media (min-width: $mobile) {
     grid-column-gap: calc(
-      (#{$grid-mobile-gutter} / #{strip-unit($vp-sm)}) * 100vw
+      (var(--grid-gutter) / #{strip-unit($mobile)}) * 100vw
     );
-    padding: calc((#{$grid-mobile-padding} / #{strip-unit($vp-sm)}) * 100vw);
+    padding: calc((var(--grid-padding) / #{strip-unit($mobile)}) * 100vw);
   }
 
-  @media (min-width: $vp-md) {
-    grid-template-columns: repeat($grid-columns, 1fr);
-    grid-column-gap: calc((#{$grid-gutter} / #{strip-unit($vp-md)}) * 100vw);
-    padding: calc((#{$grid-padding} / #{strip-unit($vp-md)}) * 100vw);
+  @media (min-width: $tablet) {
+    grid-column-gap: calc(
+      (var(--grid-gutter) / #{strip-unit($tablet)}) * 100vw
+    );
+    padding: calc((var(--grid-padding) / #{strip-unit($tablet)}) * 100vw);
   }
 
-  @media (min-width: $vp-lg) {
-    grid-column-gap: calc((#{$grid-gutter} / #{strip-unit($vp-lg)}) * 100vw);
-    padding: calc((#{$grid-padding} / #{strip-unit($vp-lg)}) * 100vw);
+  @media (min-width: $desktop) {
+    grid-column-gap: calc(
+      (var(--grid-gutter) / #{strip-unit($desktop)}) * 100vw
+    );
+    padding: calc((var(--grid-padding) / #{strip-unit($desktop)}) * 100vw);
   }
 
-  @media (min-width: $vp-xl) {
-    grid-column-gap: calc((#{$grid-gutter} / #{strip-unit($vp-xl)}) * 100vw);
-    padding: calc((#{$grid-padding} / #{strip-unit($vp-xl)}) * 100vw);
-  }
-
-  @media (min-width: $vp-xx) {
-    grid-column-gap: calc((#{$grid-gutter} / #{strip-unit($vp-xx)}) * 100vw);
-    padding: calc((#{$grid-padding} / #{strip-unit($vp-xx)}) * 100vw);
-  }
-
-  &--gutter-thin {
-    grid-column-gap: 2px;
-    padding: 0;
-  }
-
+  // remove padding from nested grids
   > .grid {
     padding-left: 0;
     padding-right: 0;
@@ -84,34 +71,16 @@ $breakpoints: (
   position: relative;
   @include grid-settings;
 
-  &.no-padding {
-    padding: 0;
+  [class*='cols-'] {
+    padding-right: var(--space-8);
   }
-
-  &.full.no-padding {
-    padding: 0;
-  }
-
-  &.no-padding {
-    &.align-left {
-      > * {
-        margin-left: -$grid-gutter;
-      }
-    }
-    &.align-right {
-      > * {
-        margin-right: -$grid-gutter;
-      }
-    }
-  }
-
-  // Target all columns
-  // > [class^="cols"] {}
 }
 
 // --------------------------------------------------------------------------------------
 // Default column classes
 // --------------------------------------------------------------------------------------
+
+$grid-columns: 12;
 
 // create span classes
 @for $index from 1 through $grid-columns {

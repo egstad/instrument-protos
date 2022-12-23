@@ -23,6 +23,30 @@
   --body-4-line-height: calc(var(--baseline) * 4);
   --body-4-letter-spacing: 0;
 
+  --headline-1-size: 28;
+  --headline-1-line-height: calc(var(--baseline) * 4);
+  --headline-1-letter-spacing: -0.01em;
+
+  --headline-2-size: 32;
+  --headline-2-line-height: calc(var(--baseline) * 5);
+  --headline-2-letter-spacing: -0.01em;
+
+  --headline-3-size: 44;
+  --headline-3-line-height: calc(var(--baseline) * 6);
+  --headline-3-letter-spacing: -0.02em;
+
+  --headline-4-size: 47;
+  --headline-4-line-height: calc(var(--baseline) * 7);
+  --headline-4-letter-spacing: -0.02em;
+
+  --headline-5-size: 60;
+  --headline-5-line-height: calc(var(--baseline) * 8);
+  --headline-5-letter-spacing: -0.02em;
+
+  --headline-6-size: 70;
+  --headline-6-line-height: calc(var(--baseline) * 9);
+  --headline-6-letter-spacing: -0.03em;
+
   --caption-1-size: 9;
   --caption-1-line-height: calc(var(--baseline) * 1.5);
   --caption-1-letter-spacing: 0.11em;
@@ -33,22 +57,28 @@
 }
 
 @mixin fluid-type-settings($font-size, $line-height) {
-  @media (min-width: $vp-sm) {
+  @media (min-width: $mobile) {
     line-height: calc(#{$line-height} / #{$font-size});
-    font-size: calc(#{$font-size} / #{strip-unit($vp-sm)} * 100vw);
+    font-size: calc(#{$font-size} / #{strip-unit($mobile)} * 100vw);
   }
-  @media (min-width: $vp-md) {
-    font-size: calc(#{$font-size} / #{strip-unit($vp-md)} * 100vw);
+  @media (min-width: $tablet) {
+    font-size: calc(#{$font-size} / #{strip-unit($tablet)} * 100vw);
   }
-  @media (min-width: $vp-lg) {
-    font-size: calc(#{$font-size} / #{strip-unit($vp-lg)} * 100vw);
+  @media (min-width: $laptop) {
+    font-size: calc(#{$font-size} / #{strip-unit($laptop)} * 100vw);
   }
-  @media (min-width: $vp-xl) {
-    font-size: calc(#{$font-size} / #{strip-unit($vp-xl)} * 100vw);
+  @media (min-width: $desktop) {
+    font-size: calc(#{$font-size} / #{strip-unit($desktop)} * 100vw);
   }
-  @media (min-width: $vp-xx) {
-    font-size: calc(#{$font-size} / #{strip-unit($vp-xx)} * 100vw);
+  @media (min-width: $cinema) {
+    font-size: calc(#{$font-size} / #{strip-unit($cinema)} * 100vw);
   }
+}
+
+[class*='t-caption'],
+[class*='t-body'],
+[class*='t-headline'] {
+  max-width: 80ch;
 }
 
 .t-body {
@@ -85,12 +115,81 @@
   }
 }
 
+.t-headline {
+  &--1 {
+    font-size: calc(var(--headline-1-size) * 1px);
+    line-height: calc(var(--headline-1-line-height) * 1px);
+    letter-spacing: var(--headline-1-letter-spacing);
+
+    @include fluid-type-settings(
+      var(--headline-1-size),
+      var(--headline-1-line-height)
+    );
+  }
+
+  &--2 {
+    font-size: calc(var(--headline-2-size) * 1px);
+    line-height: calc(var(--headline-2-line-height) * 1px);
+    letter-spacing: var(--headline-2-letter-spacing);
+
+    @include fluid-type-settings(
+      var(--headline-2-size),
+      var(--headline-2-line-height)
+    );
+  }
+
+  &--3 {
+    font-size: calc(var(--headline-3-size) * 1px);
+    line-height: calc(var(--headline-3-line-height) * 1px);
+    letter-spacing: var(--headline-3-letter-spacing);
+
+    @include fluid-type-settings(
+      var(--headline-3-size),
+      var(--headline-3-line-height)
+    );
+  }
+
+  &--4 {
+    font-size: calc(var(--headline-4-size) * 1px);
+    line-height: calc(var(--headline-4-line-height) * 1px);
+    letter-spacing: var(--headline-4-letter-spacing);
+
+    @include fluid-type-settings(
+      var(--headline-4-size),
+      var(--headline-4-line-height)
+    );
+  }
+
+  &--5 {
+    font-size: calc(var(--headline-5-size) * 1px);
+    line-height: calc(var(--headline-5-line-height) * 1px);
+    letter-spacing: var(--headline-5-letter-spacing);
+
+    @include fluid-type-settings(
+      var(--headline-5-size),
+      var(--headline-5-line-height)
+    );
+  }
+
+  &--6 {
+    font-size: calc(var(--headline-6-size) * 1px);
+    line-height: calc(var(--headline-6-line-height) * 1px);
+    letter-spacing: var(--headline-6-letter-spacing);
+
+    @include fluid-type-settings(
+      var(--headline-6-size),
+      var(--headline-6-line-height)
+    );
+  }
+}
+
 .t-caption {
   &--1 {
     font-size: calc(var(--caption-1-size) * 1px);
     line-height: calc(var(--caption-1-line-height) * 1px);
     letter-spacing: var(--caption-1-letter-spacing);
     text-transform: uppercase;
+    max-width: 80ch;
 
     @include fluid-type-settings(
       var(--caption-1-size),
@@ -103,6 +202,7 @@
     line-height: calc(var(--caption-2-line-height) * 1px);
     letter-spacing: var(--caption-2-letter-spacing);
     font-variation-settings: 'wght' 420, 'wdth' 370;
+    max-width: 80ch;
 
     @include fluid-type-settings(
       var(--caption-2-size),

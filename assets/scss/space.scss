@@ -1,0 +1,150 @@
+:root {
+  // unitless values are used to convert px to vw with css calc.
+  // atm, CSS calc's divide function is unitless only
+  --space-4-unitless: calc(var(--baseline) * 0.5);
+  --space-8-unitless: calc(var(--baseline) * 1);
+  --space-12-unitless: calc(var(--baseline) * 1.5);
+  --space-16-unitless: calc(var(--baseline) * 2);
+  --space-24-unitless: calc(var(--baseline) * 3);
+  --space-32-unitless: calc(var(--baseline) * 4);
+  --space-48-unitless: calc(var(--baseline) * 6);
+  --space-96-unitless: calc(var(--baseline) * 12);
+
+  --space-4: calc(var(--space-4-unitless) * 1px);
+  --space-8: calc(var(--space-8-unitless) * 1px);
+  --space-12: calc(var(--space-12-unitless) * 1px);
+  --space-16: calc(var(--space-16-unitless) * 1px);
+  --space-24: calc(var(--space-24-unitless) * 1px);
+  --space-32: calc(var(--space-32-unitless) * 1px);
+  --space-48: calc(var(--space-48-unitless) * 1px);
+  --space-96: calc(var(--space-96-unitless) * 1px);
+}
+
+@media (min-width: $mobile) {
+  :root {
+    --space-4: calc((var(--space-4-unitless) / #{strip-unit($mobile)}) * 100vw);
+    --space-8: calc((var(--space-8-unitless) / #{strip-unit($mobile)}) * 100vw);
+    --space-12: calc(
+      (var(--space-12-unitless) / #{strip-unit($mobile)}) * 100vw
+    );
+    --space-16: calc(
+      (var(--space-16-unitless) / #{strip-unit($mobile)}) * 100vw
+    );
+    --space-24: calc(
+      (var(--space-24-unitless) / #{strip-unit($mobile)}) * 100vw
+    );
+    --space-32: calc(
+      (var(--space-32-unitless) / #{strip-unit($mobile)}) * 100vw
+    );
+    --space-48: calc(
+      (var(--space-48-unitless) / #{strip-unit($mobile)}) * 100vw
+    );
+    --space-96: calc(
+      (var(--space-96-unitless) / #{strip-unit($mobile)}) * 100vw
+    );
+  }
+}
+
+@media (min-width: $tablet) {
+  :root {
+    --space-4: calc((var(--space-4-unitless) / #{strip-unit($tablet)}) * 100vw);
+    --space-8: calc((var(--space-8-unitless) / #{strip-unit($tablet)}) * 100vw);
+    --space-12: calc(
+      (var(--space-12-unitless) / #{strip-unit($tablet)}) * 100vw
+    );
+    --space-16: calc(
+      (var(--space-16-unitless) / #{strip-unit($tablet)}) * 100vw
+    );
+    --space-24: calc(
+      (var(--space-24-unitless) / #{strip-unit($tablet)}) * 100vw
+    );
+    --space-32: calc(
+      (var(--space-32-unitless) / #{strip-unit($tablet)}) * 100vw
+    );
+    --space-48: calc(
+      (var(--space-48-unitless) / #{strip-unit($tablet)}) * 100vw
+    );
+    --space-96: calc(
+      (var(--space-96-unitless) / #{strip-unit($tablet)}) * 100vw
+    );
+  }
+}
+
+@media (min-width: $laptop) {
+  :root {
+    --space-4: calc((var(--space-4-unitless) / #{strip-unit($laptop)}) * 100vw);
+    --space-8: calc((var(--space-8-unitless) / #{strip-unit($laptop)}) * 100vw);
+    --space-12: calc(
+      (var(--space-12-unitless) / #{strip-unit($laptop)}) * 100vw
+    );
+    --space-16: calc(
+      (var(--space-16-unitless) / #{strip-unit($laptop)}) * 100vw
+    );
+    --space-24: calc(
+      (var(--space-24-unitless) / #{strip-unit($laptop)}) * 100vw
+    );
+    --space-32: calc(
+      (var(--space-32-unitless) / #{strip-unit($laptop)}) * 100vw
+    );
+    --space-48: calc(
+      (var(--space-48-unitless) / #{strip-unit($laptop)}) * 100vw
+    );
+    --space-96: calc(
+      (var(--space-96-unitless) / #{strip-unit($laptop)}) * 100vw
+    );
+  }
+}
+
+@media (min-width: $desktop) {
+  :root {
+    --space-4: calc(
+      (var(--space-4-unitless) / #{strip-unit($desktop)}) * 100vw
+    );
+    --space-8: calc(
+      (var(--space-8-unitless) / #{strip-unit($desktop)}) * 100vw
+    );
+    --space-12: calc(
+      (var(--space-12-unitless) / #{strip-unit($desktop)}) * 100vw
+    );
+    --space-16: calc(
+      (var(--space-16-unitless) / #{strip-unit($desktop)}) * 100vw
+    );
+    --space-24: calc(
+      (var(--space-24-unitless) / #{strip-unit($desktop)}) * 100vw
+    );
+    --space-32: calc(
+      (var(--space-32-unitless) / #{strip-unit($desktop)}) * 100vw
+    );
+    --space-48: calc(
+      (var(--space-48-unitless) / #{strip-unit($desktop)}) * 100vw
+    );
+    --space-96: calc(
+      (var(--space-96-unitless) / #{strip-unit($desktop)}) * 100vw
+    );
+  }
+}
+
+@media (min-width: $cinema) {
+  :root {
+    --space-4: calc((var(--space-4-unitless) / #{strip-unit($cinema)}) * 100vw);
+    --space-8: calc((var(--space-8-unitless) / #{strip-unit($cinema)}) * 100vw);
+    --space-12: calc(
+      (var(--space-12-unitless) / #{strip-unit($cinema)}) * 100vw
+    );
+    --space-16: calc(
+      (var(--space-16-unitless) / #{strip-unit($cinema)}) * 100vw
+    );
+    --space-24: calc(
+      (var(--space-24-unitless) / #{strip-unit($cinema)}) * 100vw
+    );
+    --space-32: calc(
+      (var(--space-32-unitless) / #{strip-unit($cinema)}) * 100vw
+    );
+    --space-48: calc(
+      (var(--space-48-unitless) / #{strip-unit($cinema)}) * 100vw
+    );
+    --space-96: calc(
+      (var(--space-96-unitless) / #{strip-unit($cinema)}) * 100vw
+    );
+  }
+}
