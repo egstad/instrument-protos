@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <div class="test">hi</div>
     <div class="grid show">
       <div v-for="col in 12" :key="col" class="cols-1"></div>
     </div>
@@ -18,6 +17,33 @@
         {{ generateSentences(1) }}
       </p>
     </section> -->
+
+    <section class="grid spaced-items">
+      <p class="t-headline--2 cols-8 xl_cols-4">
+        <!-- <span>Hamburgefontsiv</span> -->
+        <span>{{ generateTitle(2) }}</span>
+      </p>
+      <p
+        class="t-body--1 cols-4 xl_cols-3"
+        style="margin-top: calc(var(--space-8) * -0.5)"
+      >
+        <!-- <span>Hamburgefontsiv</span> -->
+        <span>{{ generateSentences(1) }}</span>
+      </p>
+      <p
+        class="t-body--1 cols-4 xl_cols-3"
+        style="margin-top: calc(var(--space-8) * -0.5)"
+      >
+        <!-- <span>Hamburgefontsiv</span> -->
+        <span>{{ generateSentences(1) }}</span>
+      </p>
+      <p class="t-caption--1 cols-4 xl_cols-1 xl_cols-start-12">
+        <!-- <span>Hamburgefontsiv</span> -->
+        <span>{{ generateSentences(1) }}</span>
+      </p>
+    </section>
+
+    <hr />
 
     <section v-for="(style, index) in styles" :key="index" class="grid">
       <p class="t-caption--1" style="padding-bottom: var(--space-16)">
@@ -140,6 +166,20 @@ export default {
 
       return lorem.generateParagraphs(numOfSentences)
     },
+    generateTitle(numOfSentences) {
+      const lorem = new LoremIpsum({
+        sentencesPerParagraph: {
+          max: 2,
+          min: 1,
+        },
+        wordsPerSentence: {
+          max: 16,
+          min: 6,
+        },
+      })
+
+      return lorem.generateParagraphs(numOfSentences)
+    },
   },
 }
 </script>
@@ -154,5 +194,10 @@ export default {
     background: red;
     padding-top: 100%;
   }
+}
+
+.spaced-items > * {
+  margin-bottom: var(--space-32);
+  padding-right: var(--space-16);
 }
 </style>

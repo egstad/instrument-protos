@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="t-1">
-      <p>
+      <p style="padding-top: 200px">
         Every page leverages <code>GSAP</code>'s <code>ScrollTrigger</code> and
         <code>ScrollSmoother</code> packages. These packages make it easy to
         create scroll-based animations while ensuring smooth scrolling across

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <section ref="sticky" class="t-1 sticky">
+  <div class="grid" style="padding-top: 300px">
+    <section ref="sticky" class="cols-12 sticky">
       <hr />
       <code>isCursor</code> : <code>{{ isCursor }}</code>
       <hr />
